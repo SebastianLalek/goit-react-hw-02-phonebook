@@ -1,3 +1,21 @@
+import { Component } from "react";
+
+import ContactList from "./contacts/Contacts";
+
+class Phonebook extends Component {
+  
+  state = {
+    contacts: [],
+    name: ''
+  }
+
+  render() {
+    return (
+      <ContactList contacts={this.state.contacts} />
+    )
+  }
+}
+
 export const App = () => {
   return (
     <div
@@ -10,7 +28,7 @@ export const App = () => {
         color: '#010101'
       }}
     >
-      React homework template
+      <Phonebook />
     </div>
   );
 };
