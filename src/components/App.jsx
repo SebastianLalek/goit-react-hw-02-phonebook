@@ -1,5 +1,7 @@
 import { Component } from "react";
 
+import { nanoid } from "nanoid";
+
 
 import ContactList from "./contacts/Contacts";
 import Form from "./form/form";
@@ -13,19 +15,21 @@ class Phonebook extends Component {
   }
 
   handleChange = e => {
-    const {name, value, id} = e.target;
-    this.setState({[name]: value, id:id})
+    const {name, value} = e.target;
+    this.setState({[name]: value})
   }
 
   handleSubmit = e => {
     e.preventDefault();
 
-    const name =this.state.name;
+    const name = this.state.name;
+    const number = this.state.number
     const id = this.state.id;
     
     const contact = {
       name: name,
-      id: id
+      number:number,
+      id: nanoid()
     }
 
     this.setState({
