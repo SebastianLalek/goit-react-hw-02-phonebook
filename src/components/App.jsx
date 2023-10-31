@@ -3,6 +3,7 @@ import { Component } from "react";
 
 import ContactList from "./contacts/Contacts";
 import Form from "./form/form";
+import Section from "./section/section";
 
 class Phonebook extends Component {
   
@@ -30,14 +31,18 @@ class Phonebook extends Component {
     this.setState({
       contacts: [...this.state.contacts, contact]
     })
+    console.log(this.state)
   }
 
   render() {
     return (
       <div>
+        <Section title="Phonebook">
         <Form onChange={this.handleChange} onSubmit={this.handleSubmit} />
-
+        </Section>
+        <Section title="Contacts">
       <ContactList contacts={this.state.contacts} />
+      </Section>
       </div>
     )
   }
