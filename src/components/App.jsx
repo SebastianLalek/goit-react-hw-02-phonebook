@@ -2,7 +2,7 @@ import { Component } from "react";
 
 
 import ContactList from "./contacts/Contacts";
-import { nanoid } from "nanoid";
+import Form from "./form/form";
 
 class Phonebook extends Component {
   
@@ -10,8 +10,6 @@ class Phonebook extends Component {
     contacts: [],
     name: ''
   }
-
-  inputId = () => nanoid();
 
   handleChange = e => {
     const {name, value, id} = e.target;
@@ -37,18 +35,7 @@ class Phonebook extends Component {
   render() {
     return (
       <div>
-<form onSubmit={this.handleSubmit}>
-<input
-  type="text"
-  name="name"
-  id={this.inputId()}
-  pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-  title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-  required
-  onChange={this.handleChange}
-/>
-<button>Add contact</button>
-</form>
+        <Form onChange={this.handleChange} onSubmit={this.handleSubmit} />
 
       <ContactList contacts={this.state.contacts} />
       </div>
