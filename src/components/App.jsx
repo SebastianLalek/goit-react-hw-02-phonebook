@@ -6,12 +6,18 @@ import { nanoid } from "nanoid";
 import ContactList from "./contacts/Contacts";
 import Form from "./form/form";
 import Section from "./section/section";
+import Filter from "./filter/filter";
 
 class Phonebook extends Component {
   
   state = {
-    contacts: [],
-    name: ''
+    contacts: [
+      {id: 'id-1', name: 'Rosie Simpson', number: '459-12-56'},
+      {id: 'id-2', name: 'Hermione Kline', number: '443-89-12'},
+      {id: 'id-3', name: 'Eden Clements', number: '645-17-79'},
+      {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'},
+    ],
+    filter: ''
   }
 
   handleChange = e => {
@@ -38,6 +44,10 @@ class Phonebook extends Component {
     console.log(this.state)
   }
 
+  // filter = () => {
+
+  // }
+
   render() {
     return (
       <div>
@@ -45,7 +55,9 @@ class Phonebook extends Component {
         <Form onChange={this.handleChange} onSubmit={this.handleSubmit} />
         </Section>
         <Section title="Contacts">
-      <ContactList contacts={this.state.contacts} />
+      <ContactList contacts={this.state.contacts}>
+        <Filter onChange={this.filter} />
+      </ContactList>
       </Section>
       </div>
     )
