@@ -30,7 +30,6 @@ class Phonebook extends Component {
 
     const name = this.state.name;
     const number = this.state.number;
-    const id = this.state.id;
 
     const newContact = {
       name: name,
