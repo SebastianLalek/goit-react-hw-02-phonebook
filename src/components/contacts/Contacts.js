@@ -1,3 +1,5 @@
+import css from './Contacts.module.css';
+
 export default function ContactList({ contacts, children, onClick }) {
   return (
     <>
@@ -6,7 +8,7 @@ export default function ContactList({ contacts, children, onClick }) {
         {contacts.map(contact => (
           <li key={contact.id}>
             {contact.name}: {contact.number}
-            <button id={contact.id} onClick={onClick}>
+            <button className={css.button} id={contact.id} onClick={onClick}>
               Delete
             </button>
           </li>
