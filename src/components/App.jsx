@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import Notiflix from 'notiflix';
 
 import { nanoid } from 'nanoid';
 
@@ -31,14 +32,22 @@ class Phonebook extends Component {
     const number = this.state.number;
     const id = this.state.id;
 
-    const contact = {
+    const newContact = {
       name: name,
       number: number,
       id: nanoid(),
     };
 
+    if (this.state.contacts.find(contact => contact.name === newContact.name)) {
+      return Notiflix.Report.failure(
+        'Error',
+        `${newContact.name} is already in contacts`,
+        'OK'
+      );
+    }
+
     this.setState({
-      contacts: [...this.state.contacts, contact],
+      contacts: [...this.state.contacts, newContact],
     });
   };
 
