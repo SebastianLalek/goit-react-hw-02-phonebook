@@ -1,5 +1,7 @@
 import css from './form.module.css';
 
+import PropTypes from 'prop-types';
+
 export default function Form({ onSubmit, onChange }) {
   return (
     <form className={css.form} onSubmit={onSubmit}>
@@ -29,3 +31,8 @@ export default function Form({ onSubmit, onChange }) {
     </form>
   );
 }
+
+Form.propTypes = {
+  onSubmit: PropTypes.func,
+  onChange: PropTypes.func,
+};

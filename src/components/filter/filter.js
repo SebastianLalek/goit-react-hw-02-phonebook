@@ -1,5 +1,7 @@
 import css from './filter.module.css';
 
+import PropTypes from 'prop-types';
+
 export default function Filter({ onChange, onSubmit }) {
   return (
     <form onSubmit={onSubmit}>
@@ -10,3 +12,8 @@ export default function Filter({ onChange, onSubmit }) {
     </form>
   );
 }
+
+Filter.propTypes = {
+  onSubmit: PropTypes.func,
+  onChange: PropTypes.func,
+};

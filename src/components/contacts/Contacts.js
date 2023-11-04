@@ -1,5 +1,7 @@
 import css from './Contacts.module.css';
 
+import PropTypes from 'prop-types';
+
 export default function ContactList({ contacts, children, onClick }) {
   return (
     <>
@@ -17,3 +19,9 @@ export default function ContactList({ contacts, children, onClick }) {
     </>
   );
 }
+
+ContactList.propTypes = {
+  contacts: PropTypes.array,
+  children: PropTypes.object,
+  onClick: PropTypes.func,
+};
