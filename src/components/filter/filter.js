@@ -1,9 +1,9 @@
-export default function Filter(filter) {
+export default function Filter({ onChange, onSubmit }) {
   return (
-    <form>
+    <form onSubmit={onSubmit}>
       <label>
         <p>Find your contact by name</p>
-        <input type="text" name="name" onChange={filter} />
+        <input type="text" name="filter" onChange={onChange} />
       </label>
     </form>
   );
