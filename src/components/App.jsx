@@ -37,7 +37,11 @@ class Phonebook extends Component {
       id: nanoid(),
     };
 
-    if (this.state.contacts.find(contact => contact.name === newContact.name)) {
+    if (
+      this.state.contacts.find(
+        contact => contact.name.toLowerCase() === newContact.name.toLowerCase()
+      )
+    ) {
       return Notiflix.Report.failure(
         'Error',
         `${newContact.name} is already in contacts`,
@@ -67,7 +71,7 @@ class Phonebook extends Component {
           <Form onChange={this.handleChange} onSubmit={this.handleSubmit} />
         </Section>
         <Section title="Contacts">
-          <ContactList contacts={this.filter()}>
+          <ContactList contacts={this.filter()} onClick={this.deleteContact}>
             <Filter
               onChange={this.handleChange}
               onSubmit={this.preventSubmit}
