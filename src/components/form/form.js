@@ -1,7 +1,9 @@
+import css from './form.module.css';
+
 export default function Form({ onSubmit, onChange }) {
   return (
-    <form onSubmit={onSubmit}>
-      <label>
+    <form className={css.form} onSubmit={onSubmit}>
+      <label className={css.label}>
         <p>Name</p>
         <input
           type="text"
@@ -12,7 +14,7 @@ export default function Form({ onSubmit, onChange }) {
           onChange={onChange}
         />
       </label>
-      <label>
+      <label className={css.label}>
         <p>Number</p>
         <input
           type="tel"
@@ -23,7 +25,7 @@ export default function Form({ onSubmit, onChange }) {
           onChange={onChange}
         />
       </label>
-      <button>Add contact</button>
+      <button className={css.button}>Add contact</button>
     </form>
   );
 }
