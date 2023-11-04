@@ -64,6 +64,17 @@ class Phonebook extends Component {
     );
   };
 
+  deleteContact = e => {
+    const contactId = e.target.id;
+
+    const updatedContacts = this.state.contacts.filter(
+      contact => contact.id !== contactId
+    );
+    this.setState({
+      contacts: [...updatedContacts],
+    });
+  };
+
   render() {
     return (
       <div>
