@@ -1,3 +1,16 @@
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.list li {
+  background-color: rgb(200, 200, 238);
+  line-height: 1.5;
+  margin: 10px 0;
+  padding: 5px;
+  border-radius: 5px;
+}
+
 .button {
   background-color: rgb(104, 104, 255);
   color: rgb(245, 245, 245);

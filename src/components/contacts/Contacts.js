@@ -6,7 +6,7 @@ export default function ContactList({ contacts, children, onClick }) {
   return (
     <>
       {children}
-      <ul>
+      <ul className={css.list}>
         {contacts.map(contact => (
           <li key={contact.id}>
             {contact.name}: {contact.number}
